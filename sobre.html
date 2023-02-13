@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        *{
+          margin: 0;
+          cursor: none;
+        }
+        html,body{
+          height: 100%;
+          width: 100%;
+          background: black;
+          background-size: cover;
+          background-attachment: fixed;
+       
+        }
+        body::-webkit-scrollbar{
+          width: 0px;
+        }
+        #menu{
+          
+          width: 100%;
+          height: 40px;
+          z-index: 1;
+        }
+        #logo{
+          position: absolute;
+          color: #7a00d1;
+          margin-left: 100px;
+          margin-top: 5px;
+          font-size: 20px;
+          
+        }
+        #links{
+          position: absolute;
+          margin-top: 20px;
+          right: 0;
+        }
+        #menu a{
+          margin-top: 20px;
+          text-decoration: none;
+          font-size: 20px;
+          margin-right: 50px;
+          color: white;
+          right: 0;
+          transition: 0.5s;
+        }
+        #menu a:hover{
+          color: #7a00d1;
+        }
+        #descricao{
+          color: white;
+          width: 350px;
+          margin-top: 0px;
+          line-height: 40px;
+        }
+        button{
+          margin-top: 20px;
+          background: #4B0082;
+          width: 250px;
+          height: 40px;
+          border: none;
+          color: white;
+          font-weight: bold;
+          font-size: 13px;
+        }
+        button:hover{
+          background: #4c00827c;
+        }
+        #descricao h1{
+          color: #7a00d1;
+          font-size: 45px;
+        }
+        
+      
+        
+        #inicio{
+          color: #7a00d1;
+        }
+        #inicio h1{
+          color: #7a00d1;
+        }
+        #ponteiro{
+          position:absolute;
+          z-index: 10;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 3px solid #7a00d1;
+          transform: translate3d(-50%, -50%, 0);
+          pointer-events: none;
+          
+          transition: 1s;
+          transition-property: width, height, opacity;
+          filter: drop-shadow();
+        }
+        #minhafoto{
+          opacity: 0;
+          animation: luz2 2s 1;
+          animation-fill-mode: forwards;
+          animation-delay: 5s;
+        }
+        #centralizar{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          width: 100%;
+          height: auto;
+          color: white;
+        }
+        #textos{
+          position: relative;
+          margin-top: 120px;
+          min-width: 100px;
+          max-width: 700px;
+          
+          width: 100%;
+          height: auto;
+          line-height: 30px;
+          background: #7a00d11e;
+        }
+        #textos h1, #textos p,#textos2 h1, #textos2 p{
+          margin-top: 10px;
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+        #img1{
+          max-width: 500px;
+          width: 100%;
+          max-height: 250px;
+          margin: 10px;
+        }
+        #titulo1{
+          width: 100%;
+          text-align: center;
+          margin-top: 100px;
+        }
+        #textos2{
+          margin-top: 120px;
+          max-width: 700px;
+          width: 100%;
+          height: auto;
+          line-height: 30px;
+          background: #7a00d11e;
+          margin-bottom: 10px;
+        }
+        #textos2 h1{
+          text-align: center;
+        }
+        h1{
+          color: #7a00d1;
+        }
+        @media (max-width: 900px) {
+            #ponteiro{
+              display: none;
+            }
+            #links{
+              display: none;
+            }
+            #menu{
+              display: flex;
+              justify-content: center;
+              align-content: center;
+            }
+            #logo{
+              margin-left: 0;
+            }
+            #textos, #textos2{
+              text-align: center;
+            }
+            #titulo1{
+              margin-top: 500px;
+            }
+            #img1{
+              margin-top: 300px;
+            }
+        }
+    </style>
+  </head>
+  <body onmousemove="mover()">
+    
+    <canvas id="canvas" style="position: absolute; opacity: 0.1; z-index: 0;"></canvas>
+    <h1 id="ocultar"></h1>
+      <div id="ponteiro"></div>
+      <div id="menu">
+        <div id="logo">
+            <a id="inicio" onmouseover="mudar(1)" onmouseout="mudar(0)" href=""><h1>portfólio</h1></a>
+        </div>
+        <div id="links">
+          <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)" style="color: #861dd1;">Sobre mim</a>
+          <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)">Portifolio</a>
+          <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)">Contatos</a>
+        </div>
+      </div>
+      <div id="centralizar">
+        <div id="textos">
+          <H1 style="z-index: 3;">Olá, sou José Vinicius,</H1>
+          <p style="margin-top: 5px; z-index: 3;">desenvolvedor front-end e estudante de engenharia da computação e profissional de excel.
+             Possuo conhecimento em html, css, javascript, python e C#.
+             Atualmente estou desenvolvendo conhecimento em PHP e WordPress. 
+             Durante meu periodos de folga realizo algumas criações de site de acordo com as ideias que surgem
+             no momento (você pode estar consultando algumas dessas ideias na área de projetos do site).
+             Alem da programação possuo um grande conhecimento com excel no desenvolvimento de dashboards e analise de informações
+             a qual desenvolvi durante meus perios de trabalho como assistente administrativo.
+             Logo abaixo poderá verificar minha experiencia profissional.
+          </p>
+        </div>
+        <img id="img1" src="img1.png" alt="Foto minha">
+        <h1 id="titulo1">Experiencia</h1>
+        <img id="img1" src="img1.png" alt="Foto minha2">
+        <div id="textos2">
+          <H1>Assistente administrativo</H1>
+          <p>
+            <br>
+            Possuo 2 anos de experiencia como assistente administrativo na empresa Raiadrogasil, onde realizei diversas atividades com excel,
+            sistema WMS e onde aprendi a utilizar python para automatizar tarefas cotidianas. Alem do conhecimento em excel e python realizei atividades
+            como aplicador 5S nos setores e participei de grupos de melhorias aplicando conhecimento de PDCA e FDCA.
+            <br>
+           A seguir algumas atividades realizadas:
+          </p>
+          <ul>
+            <li>Emissão de notas fiscais de devolução para fornecedores</li>
+            <li>Emissão de notas fiscais de faturamento</li>
+            <li>Emissão de notas fiscais e MTRs para descarte de produtos para RCR</li>
+            <li>Endereçamento de itens nos sistemas de WMS e Java</li>
+            <li>Realização de inventario no setor de logistica reversa</li>
+            <li>Resolução de chamados de servicenow, analise de chamados, e montagem de apresentação dos chamados retornados</li>
+            <li>Atualização de notas fiscais de volumes de próprio e improprio(processo automatizado com python)</li>
+            <li>Fechamento dos processos do setor(processo automatizado com python)</li>
+          </ul>
+        </div>
+        
+      </div>
+      
+      
+
+      
+
+    <script>
+      function mover(){
+        x = event.pageX
+        y = event.pageY
+        huebr = x +" " + y
+        document.getElementById("ponteiro").style.marginLeft = x +"px"
+        document.getElementById("ponteiro").style.marginTop = y +"px"
+      }
+     
+      function mudar(n){ 
+          if(n==1) {   
+            document.getElementById("ponteiro").style.cssText= "width:65px; height: 65px; border: 5px solid #7a00d1; opacity: 0.5;"
+          }
+          if(n==0){
+            document.getElementById("ponteiro").style.cssText= "width:50px; height: 50px; border: 3px solid #7a00d1; opacity: 1"
+          }
+      }
+    </script>
+    <script src="particulas.js"></script>
+  </body>
+</html>
