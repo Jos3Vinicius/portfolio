@@ -110,7 +110,7 @@ function init(){
     teste.push(x)
     teste2.push(y)
     if(window.innerWidth>1900){
-    total = 200
+    total = 70
     }
 
   }
