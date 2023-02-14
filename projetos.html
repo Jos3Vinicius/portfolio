@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        *{
+          margin: 0;
+          cursor: none;
+        }
+        html,body{
+          height: 100%;
+          width: 100%;
+          background: black;
+          background-size: cover;
+          background-attachment: fixed;
+       
+        }
+        body::-webkit-scrollbar{
+          width: 0px;
+        }
+        #menu{
+          
+          width: 100%;
+          height: 40px;
+          z-index: 1;
+        }
+        #logo{
+          position: absolute;
+          color: #7a00d1;
+          margin-left: 100px;
+          margin-top: 5px;
+          font-size: 20px;
+          
+        }
+        #links{
+          position: absolute;
+          margin-top: 20px;
+          right: 0;
+        }
+        #menu a{
+          margin-top: 20px;
+          text-decoration: none;
+          font-size: 20px;
+          margin-right: 50px;
+          color: white;
+          right: 0;
+          transition: 0.5s;
+        }
+        #menu a:hover{
+          color: #7a00d1;
+        }
+        #descricao{
+          color: white;
+          width: 350px;
+          margin-top: 0px;
+          line-height: 40px;
+        }
+        button{
+          margin-top: 20px;
+          background: #4B0082;
+          width: 150px;
+          height: 40px;
+          border: none;
+          color: white;
+          font-weight: bold;
+          font-size: 13px;
+        }
+        button:hover{
+          background: #4c00827c;
+        }
+        #descricao h1{
+          color: #7a00d1;
+          font-size: 45px;
+        }
+        
+      
+        
+        #inicio{
+          color: #7a00d1;
+        }
+        #inicio h1{
+          color: #7a00d1;
+        }
+        #ponteiro{
+          position:absolute;
+          z-index: 10;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 3px solid #7a00d1;
+          transform: translate3d(-50%, -50%, 0);
+          pointer-events: none;
+          
+          transition: 1s;
+          transition-property: width, height, opacity;
+          filter: drop-shadow();
+        }
+        #centralizar{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          width: 100%;
+          height: auto;
+          color: white;
+        }
+        
+        h1{
+          color: #7a00d1;
+        }
+        
+        #imagens{
+          display: flex;
+          flex-wrap: wrap;
+          max-width: 70%;
+          width: 100%;
+          height: auto;
+          background: #7a00d110;
+          margin-top: 100px;
+        }
+        #imagens2{
+          display: flex;
+          justify-content: end;
+          max-width: 70%;
+          width: 100%;
+          height: auto;
+          background: #7a00d110;
+          margin-top: 20px;
+        }
+        #imagens img,#imagens2 img {
+          max-width: 500px;
+          width: 100%;
+          max-height: 250px;
+          height: auto;
+        }
+        a{
+          text-decoration: none;
+        }
+        p{
+          max-width: 400px;
+          width: 100%;
+        }
+        #textos{
+          margin-left: 10px;
+        }
+        #textos2{
+          margin-right: 10px;
+        }
+        @media (max-width: 900px) {
+            #ponteiro{
+              display: none;
+            }
+            #links{
+              display: none;
+            }
+            #menu{
+              display: flex;
+              justify-content: center;
+              align-content: center;
+            }
+            #logo{
+              margin-left: 0;
+            }
+            #textos, #textos2{
+              text-align: center;
+            }
+            #titulo1{
+              margin-top: 500px;
+            }
+            #imagens, #imagens2{
+              display: flex;
+              justify-content: center;
+              max-width: 100%;
+              width: 100%;
+            }
+            #centralizar{
+              width: 100%;
+            }
+        }
+    </style>
+  </head>
+  <body onmousemove="mover()">
+    
+    <canvas id="canvas" style="position: absolute; opacity: 0.1; z-index: 0;"></canvas>
+    <h1 id="ocultar"></h1>
+      <div id="ponteiro"></div>
+      <div id="menu">
+        <div id="logo">
+            <a id="inicio" onmouseover="mudar(1)" onmouseout="mudar(0)" href=""><h1>portfólio</h1></a>
+        </div>
+        <div id="links">
+          <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)">Sobre mim</a>
+          <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)" style="color: #861dd1; font-weight: bolder;">Projetos</a>
+          <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)">Contatos</a>
+        </div>
+      </div>
+      <div id="centralizar">
+          <div id="imagens"><!--Div de imagens 1-->
+                <img src="site.png" alt="">
+                <div id="textos"> <!--Div de texto 1-->
+                    <a href=""><h1 id="link">Portfólio modelo 2</h1></a>
+                    <p><br>Esse é o segundo modelo de portfólio criado por mim. Deixei o modelo desse portfólio ativo
+                      para que seja possivel consultar e verificar as diferenças dos modelos!
+                    </p>
+                    <a href=""><button onmouseover="mudar(1)" onmouseout="mudar(0)">Acesse aqui</button></a>
+                </div>
+          </div>
+          <div id="imagens2" style="flex-wrap: wrap-reverse;"><!--Div de imagens 1-->
+                <div id="textos2"><!--Div de texto 2-->
+                  <a href="" style="text-align: end;"><h1 id="link">Site 2</h1></a>
+                  <p>Descrição</p>
+                  <a href=""><button onmouseover="mudar(1)" onmouseout="mudar(0)">Acesse aqui</button></a>
+                </div>
+                <img src="site2.png" alt=""> 
+                
+          </div>
+          <div id="imagens" style="flex-wrap: wrap; margin-top: 20px;margin-bottom: 20px;"><!--Div de imagens 3-->
+                  <img src="site.png" alt=""> 
+                  <div id="textos"><!--Div de texto 2-->
+                    <a href=""><h1 id="link">adwa</h1></a>
+                    <p>adwawda</p>
+                    <a href=""><button onmouseover="mudar(1)" onmouseout="mudar(0)">Acesse aqui</button></a>
+                  </div>
+          </div>
+      </div>
+      
+      
+
+      
+
+    <script>
+      function mover(){
+        x = event.pageX
+        y = event.pageY
+        huebr = x +" " + y
+        document.getElementById("ponteiro").style.marginLeft = x +"px"
+        document.getElementById("ponteiro").style.marginTop = y +"px"
+      }
+     
+      function mudar(n){ 
+          if(n==1) {   
+            document.getElementById("ponteiro").style.cssText= "width:65px; height: 65px; border: 5px solid #7a00d1; opacity: 0.5;"
+          }
+          if(n==0){
+            document.getElementById("ponteiro").style.cssText= "width:50px; height: 50px; border: 3px solid #7a00d1; opacity: 1"
+          }
+      }
+    </script>
+    <script src="particulas.js"></script>
+  </body>
+</html>
