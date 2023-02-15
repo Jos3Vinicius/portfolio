@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        *{
+          margin: 0;
+          cursor: none;
+        }
+        html,body{
+          height: 100%;
+          width: 100%;
+          background: black;
+          background-size: cover;
+          background-attachment: fixed;
+       
+        }
+        body::-webkit-scrollbar{
+          width: 0px;
+        }
+        #menu{
+          
+          width: 100%;
+          height: 40px;
+          z-index: 1;
+        }
+        #logo{
+          position: absolute;
+          color: #7a00d1;
+          margin-left: 100px;
+          margin-top: 5px;
+          font-size: 20px;
+          
+        }
+        #links{
+          position: absolute;
+          margin-top: 20px;
+          right: 0;
+        }
+        #menu a{
+          margin-top: 20px;
+          text-decoration: none;
+          font-size: 20px;
+          margin-right: 50px;
+          color: white;
+          right: 0;
+          transition: 0.5s;
+        }
+        #menu a:hover{
+          color: #7a00d1;
+        }
+        #descricao{
+          color: white;
+          max-width: 350px;
+          margin-top: 0px;
+          line-height: 40px;
+        }
+        button{
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 20px;
+          background: #ffffff;
+          height: 40px;
+          border: none;
+          color: black;
+          font-weight: bold;
+          font-size: 13px;
+          text-align: center;
+          border-radius: 8px;
+          width: 200px;
+          
+        }
+        button:hover{
+          background: #7b668a;
+        }
+        #descricao h1{
+          color: #7a00d1;
+          font-size: 45px;
+        }
+        #inicio{
+          color: #7a00d1;
+        }
+        #inicio h1{
+          color: #7a00d1;
+        }
+        #ponteiro{
+          position:absolute;
+          z-index: 10;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 3px solid #7a00d1;
+          transform: translate3d(-50%, -50%, 0);
+          pointer-events: none;
+          
+          transition: 1s;
+          transition-property: width, height, opacity;
+          filter: drop-shadow();
+        }
+        #centralizar{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          width: 100%;
+          height: auto;
+          color: white;
+        }
+        
+        h1{
+          color: #7a00d1;
+        }
+        #contatos{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 50px;
+          max-width: 400px;
+          width: 100%;
+          height: 450px;
+          background: #7a00d19f;
+          border-radius: 25px;
+          z-index: 1;
+          margin-left: 5px;
+          margin-right: 5px;
+          margin-bottom: 5px;
+        }
+        @media (max-width: 900px) {
+            #ponteiro{
+              display: none;
+            }
+            #links{
+              display: none;
+            }
+            #menu{
+              display: flex;
+              justify-content: center;
+              align-content: center;
+            }
+            #logo{
+              margin-left: 0;
+            }
+            #titulo1{
+              margin-top: 500px;
+            }
+            #centralizar{
+              width: 100%;
+            }
+            #canvas{
+              width: 100%;
+            }
+            button{
+              width: 150px;
+              
+            }
+        }
+        #e-mail{
+          position: relative;
+          display: flex;
+          justify-content: center;
+          height: auto;
+          margin-top: 50px;
+        }
+        button img{
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          margin-left: 2px;
+          left: 0;
+        }
+        a{text-decoration: none;}
+    </style>
+  </head>
+  <body onmousemove="mover()">
+    
+    <canvas id="canvas" style="position: absolute; opacity: 0.1; z-index: 0;"></canvas>
+    <h1 id="ocultar"></h1>
+      <div id="ponteiro"></div>
+      <div id="menu">
+        <div id="logo">
+            <a id="inicio" onmouseover="mudar(1)" onmouseout="mudar(0)" href=""><h1>portfólio</h1></a>
+        </div>
+        <div id="links">
+          <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)">Sobre mim</a>
+          <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)" style="color: #861dd1; font-weight: bolder;">Projetos</a>
+          <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)">Contatos</a>
+        </div>
+      </div>
+      <div id="centralizar">
+          <div id="contatos">
+            <h1 style="color: white;">Contatos</h1>
+              <div id="e-mail">
+                  <img src="" alt="" style="width: 35px;height: 35px;">
+                  <h4 style=" margin-left: 10px;margin-top: 12px;">jose-vinicius-duarte@hotmail.com.br</h4>
+              </div>
+              <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)" style="margin-top: 40px;"><button><img src="icone.png" alt="">Linkedin</button></a>
+              <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)"><button><img src="git.png" alt="">Github</button></a>
+          </div>
+          
+      </div>
+      
+      
+
+      
+
+    <script>
+      function mover(){
+        x = event.pageX
+        y = event.pageY
+        huebr = x +" " + y
+        document.getElementById("ponteiro").style.marginLeft = x +"px"
+        document.getElementById("ponteiro").style.marginTop = y +"px"
+      }
+     
+      function mudar(n){ 
+          if(n==1) {   
+            document.getElementById("ponteiro").style.cssText= "width:65px; height: 65px; border: 5px solid #7a00d1; opacity: 0.5;"
+          }
+          if(n==0){
+            document.getElementById("ponteiro").style.cssText= "width:50px; height: 50px; border: 3px solid #7a00d1; opacity: 1"
+          }
+      }
+    </script>
+    <script src="particulas.js"></script>
+  </body>
+</html>
