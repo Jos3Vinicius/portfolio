@@ -1,0 +1,78 @@
+<html>
+    <head>
+      <style>
+          #circulo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            background: red;
+            border-radius: 50%;
+          }
+          #esquerda{
+            display: flex;
+            align-items: center;
+              position: absolute;
+              border-top: 75px solid transparent;
+              border-bottom: 75px solid transparent;
+              border-left: 80px solid gray;
+              left: 0;
+              animation: esq 6s 1;
+              animation-fill-mode: forwards;
+              margin-left: -10px;
+          }
+          #esquerda2{
+            position: absolute;
+              border-top: 75px solid transparent;
+              border-bottom: 75px solid transparent;
+              border-left: 80px solid red;
+              right: 0;
+              margin-right: 5px;
+              z-index: 13;
+              animation: ani 6s 1;
+              animation-fill-mode: forwards;
+          }
+          #direita{
+            display: flex;
+            align-items: center;
+              position: absolute;
+              border-top: 75px solid transparent;
+              border-bottom: 75px solid transparent;
+              border-right: 80px solid gray;
+              right: 0;
+              animation: esq 6s 1;
+              animation-fill-mode: forwards;
+              margin-right: -10px;
+          }
+          #direita2{
+            position: absolute;
+              border-top: 75px solid transparent;
+              border-bottom: 75px solid transparent;
+              border-right: 80px solid red;
+              left: 0;
+              margin-left: 5px;
+              z-index: 13;
+              animation: ani 6s 1;
+              animation-fill-mode: forwards;
+          }
+          @keyframes{
+            0%{}
+          }
+      </style>
+    </head>
+    <body>
+        <div id="circulo">
+            <div id="esquerda">
+              <div id="esquerda2"></div>
+            </div>
+            <div id="direita">
+              <div id="direita2"></div>
+            </div>
+            
+            
+            
+        </div>
+    </body>
+</html>
