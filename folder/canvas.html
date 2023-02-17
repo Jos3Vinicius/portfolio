@@ -1,0 +1,114 @@
+<html>
+      <head>
+          <style>
+            #canvas{
+                border: 1px solid black;
+            }
+          </style>
+      </head>
+      <body>
+          <h1 id="teste"></h1>
+          <canvas onclick="clicar()" id="canvas" width="500px" height="300px"></canvas>
+          <button onclick="clicar()">dwawd</button>
+          <script>
+              canvas = document.getElementById("canvas")
+              ctx = canvas.getContext("2d")
+
+              ctx.beginPath()
+              ctx.fillStyle = "blue"
+              ctx.arc(150,150,100,0,2*Math.PI)
+              ctx.fill()
+
+              ctx.beginPath()
+              ctx.fillStyle = "red"
+              ctx.arc(150,150,100,2.3,4)
+              ctx.lineTo(140,150)
+              ctx.fill()
+
+              ctx.beginPath()
+              ctx.lineWidth = 3
+              ctx.moveTo(85,74)
+              ctx.lineTo(140,150)
+              ctx.lineTo(85,226)
+              ctx.stroke()
+
+              
+
+              ctx.beginPath()
+              ctx.lineWidth = 9
+              ctx.arc(150,150,100,0,2*Math.PI)
+              ctx.stroke()
+
+              x = 85
+              y = 74
+
+              x2 = 140
+              
+
+              x3 = 85
+              y3 = 226
+
+              arc1 = 2.3
+              arc2 = 4
+
+            function testar(){
+              if(y>47){
+                y -= 0.48
+                x += 1
+                x2 += 1.4
+                x3 += 1
+                y3 += 0.48
+                arc1 -= 0.0115
+                arc2 += 0.0115
+              }
+              else{
+                y -= 0
+                x += 0
+                x2 += 0
+                x3 += 0
+                y3 += 0
+                arc1 -= 0
+                arc2 += 0
+              }
+              
+              document.getElementById("teste").innerHTML = y
+
+              ctx.clearRect(0,0, canvas.width, canvas.height);
+              
+              ctx.beginPath()
+              ctx.fillStyle = "blue"
+              ctx.arc(150,150,100,0,2*Math.PI)
+              ctx.fill()
+
+              ctx.beginPath()
+              ctx.fillStyle = "gray"
+              ctx.arc(150,150,100,arc1,arc2)
+              ctx.lineTo(x2,150)
+              ctx.fill()
+
+
+              ctx.beginPath()
+              ctx.lineWidth = 3
+              ctx.moveTo(x,y)
+              ctx.lineTo(x2,150)
+              ctx.lineTo(x3,y3)
+              ctx.stroke()
+
+
+              ctx.beginPath()
+              ctx.lineWidth = 9
+              ctx.arc(150,150,100,0,2*Math.PI)
+              ctx.stroke()
+
+             
+            }
+            function clicar(){
+              setInterval(testar, 100)
+            }
+            
+            
+            
+
+          </script>
+      </body>
+</html>
