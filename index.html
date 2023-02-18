@@ -16,6 +16,9 @@
           background-attachment: fixed;
           overflow: hidden;
         }
+        body::-webkit-scrollbar{
+          width: 0px;
+        }
         #menu{
           position: absolute;
           width: 100%;
@@ -216,6 +219,123 @@
          0%{ margin-right: -6000px;}
          100%{margin-right: 0;}
         }
+        
+        #ponteiro{
+          position:absolute;
+          z-index: 10;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 3px solid #7a00d1;
+          transform: translate3d(-50%, -50%, 0);
+          pointer-events: none;
+          transition: 1s;
+          transition-property: width, height, opacity;
+          filter: drop-shadow();
+        }
+        #minhafoto{
+          opacity: 0;
+          animation: luz2 2s 1;
+          animation-fill-mode: forwards;
+          animation-delay: 5s;
+          margin-left: 80px
+        }
+        #teste{
+            width: 40px;
+            height: 40px;
+        }
+        .tes{
+          width: 40px;
+          height: 6px;
+          margin-top: 5px;
+          background: black;
+          transition: 0.5s;
+          cursor: pointer;
+          z-index: 30;
+        }
+        #check{
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          margin-left: -1px;
+          margin-top: -1px;
+          
+          z-index: 31;
+          opacity:0 ;
+          cursor: pointer;
+        }
+
+        .change .cima {
+          transform: translate(0, 11px) rotate(-45deg);
+        }
+        .change .baixo {
+          transform: translate(0, -11px) rotate(45deg);
+        }
+        .change .meio{
+          opacity: 0;
+        }#teste{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            z-index: 31;
+            margin-left: 10px;
+            margin-top: 10px;
+            display: none;
+        }
+        .tes{
+          width: 30px;
+          height: 4px;
+          margin-top: 7px;
+          background: white;
+          transition: 0.5s;
+          cursor: pointer;
+          z-index: 31;
+        }
+        #check{
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          margin-left: -1px;
+          margin-top: -1px;
+          z-index: 32;
+          opacity:0;
+          cursor: pointer;
+          
+        }
+
+        .change .cima {
+          transform: translate(0, 11px) rotate(-45deg);
+        }
+        .change .baixo {
+          transform: translate(0, -11px) rotate(45deg);
+        }
+        .change .meio{
+          opacity: 0;
+        }
+        #menu2{
+          position: fixed;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          display: none;
+          background: rgba(0, 0, 0, 0.801);
+          z-index: 30;
+          transition: 1s;
+        }
+        #menu3{
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          margin-top: 40px;
+        }
+        #menu2 a{
+          margin-top: 40px;
+          color: white;
+          font-size: 30px;
+          text-decoration: none;
+        }
         @media (max-width: 900px) {
             #links{
               display: none;
@@ -236,6 +356,7 @@
               width: 100%;
               margin-top: 100px;
               text-align: center;
+             
             }
            #informaçoes{
             max-width: 100%;
@@ -244,55 +365,66 @@
            #holograma{
             margin-left: 0;
            }
+           #minhafoto{
+            margin-left: 0;
+           }
+           body::-webkit-scrollbar{
+            width: 30px;
+           }
+          
            html,body{
             overflow: auto;
+            width: 100%;
+           }
+           #teste{
+            display: block;
+           }
+           #ponteiro{
+            display: none;
+           }
+           #canvas{
+            width: 100%;
            }
            
           
         }
-        #ponteiro{
-          position:absolute;
-          z-index: 10;
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          border: 3px solid #7a00d1;
-          transform: translate3d(-50%, -50%, 0);
-          pointer-events: none;
-          
-          transition: 1s;
-          transition-property: width, height, opacity;
-          filter: drop-shadow();
-        }
-        #minhafoto{
-          opacity: 0;
-          animation: luz2 2s 1;
-          animation-fill-mode: forwards;
-          animation-delay: 5s;
-        }
     </style>
   </head>
   <body onmousemove="mover()">
-    <canvas id="canvas" style="position: absolute; opacity: 0.1; z-index: 0;"></canvas>
+    <canvas id="canvas" style="position: fixed; opacity: 0.1; z-index: 0;"></canvas>
+
+    <div id="teste" onclick="myFunction(this)">
+      <input id="check" type="checkbox" onclick="menu()">
+      <div class="cima tes"></div>
+      <div class="meio tes"></div>
+      <div class="baixo tes"></div>
+  </div> 
+  <div id="menu2">
+    <div id="menu3">
+      <a href="">Sobre mim</a>
+      <a href="">Projetos</a>
+      <a href="">Contatos</a>
+    </div>
+  </div>
     <h1 id="ocultar"></h1>
       <div id="ponteiro"></div>
       <div id="menu">
         <div id="logo">
-            <h1>portfólio</h1>
+            <a href=""><h1 style="color: #7a00d1;">portfólio</h1></a>
         </div>
         <div id="links">
           <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)">Sobre mim</a>
-          <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)">Portifolio</a>
+          <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)">Projetos</a>
           <a href="" onmouseover="mudar(1)" onmouseout="mudar(0)">Contatos</a>
         </div>
       </div>
     <div id="centralizar">
       <div id="descricao">
-        <h3>Olá, eu sou o</h3><h1>José Vinicius</h1><h3>desenvolvedor front-end e<br> profissinal de excel</h3>
+        <h3>Olá, eu sou</h3><h1>José Vinicius</h1><h3>desenvolvedor front-end e<br> profissinal de excel</h3>
         <a href=""><button onmouseover="mudar(1)" onmouseout="mudar(0)">Saiba mais sobre mim</button></a>
       </div>
       <div id="informaçoes">
-          <img id="minhafoto" src="teste.png" alt="" style="position: absolute; width: 200px; height: 200px; margin-left: 80px;margin-top: -100px;" >
+          <img id="minhafoto" src="teste.png" alt="" style="position: absolute; width: 200px; height: 200px;;margin-top: -100px;" >
           <div id="holograma">
               <div id="circulo1"></div>
               <div id="circulo2"></div>
@@ -321,6 +453,21 @@
             document.getElementById("ponteiro").style.cssText= "width:50px; height: 50px; border: 3px solid #7a00d1; opacity: 1"
           }
       }
+
+      function myFunction(x) {
+            x.classList.toggle("change");
+          }
+
+          function menu(){
+          checkBox = document.getElementById("check")
+          if(checkBox.checked == true){
+            document.getElementById("menu2").style.display = "block"
+            document.body.style.overflow = "hidden"
+          }else{
+            document.getElementById("menu2").style.display = "none"
+          }
+        }
+
     </script>
     <script src="particulas.js"></script>
   </body>
