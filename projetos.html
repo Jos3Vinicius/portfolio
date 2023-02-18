@@ -147,6 +147,76 @@
         #textos2{
           margin-right: 10px;
         }
+        #teste{
+            width: 40px;
+            height: 40px;
+        }
+
+      
+        #teste{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            z-index: 31;
+            margin-left: 10px;
+            margin-top: 10px;
+            display: none;
+        }
+        .tes{
+          width: 30px;
+          height: 4px;
+          margin-top: 7px;
+          background: white;
+          transition: 0.5s;
+          cursor: pointer;
+          z-index: 31;
+        }
+        #check{
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          margin-left: -1px;
+          margin-top: -1px;
+          z-index: 32;
+          opacity:0;
+          cursor: pointer;
+          
+        }
+
+        .change .cima {
+          transform: translate(0, 11px) rotate(-45deg);
+        }
+        .change .baixo {
+          transform: translate(0, -11px) rotate(45deg);
+        }
+        .change .meio{
+          opacity: 0;
+        }
+        #menu2{
+          position: fixed;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          display: none;
+          background: rgba(0, 0, 0, 0.801);
+          z-index: 30;
+          transition: 1s;
+        }
+        #menu3{
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          margin-top: 40px;
+        }
+        #menu2 a{
+          margin-top: 40px;
+          color: white;
+          font-size: 30px;
+          text-decoration: none;
+        }
+
         @media (max-width: 900px) {
             #ponteiro{
               display: none;
@@ -177,12 +247,33 @@
             #centralizar{
               width: 100%;
             }
+            #canvas{
+            width: 100%;
+           }
+           #teste{
+            display: block;
+           }
         }
     </style>
   </head>
   <body onmousemove="mover()">
     
     <canvas id="canvas" style="position: absolute; opacity: 0.1; z-index: 0;"></canvas>
+
+    <div id="teste" onclick="myFunction(this)">
+      <input id="check" type="checkbox" onclick="menu()">
+      <div class="cima tes"></div>
+      <div class="meio tes"></div>
+      <div class="baixo tes"></div>
+    </div> 
+    <div id="menu2">
+      <div id="menu3">
+        <a href="">Sobre mim</a>
+        <a href="">Projetos</a>
+        <a href="">Contatos</a>
+      </div>
+    </div>
+
     <h1 id="ocultar"></h1>
       <div id="ponteiro"></div>
       <div id="menu">
@@ -246,6 +337,19 @@
             document.getElementById("ponteiro").style.cssText= "width:50px; height: 50px; border: 3px solid #7a00d1; opacity: 1"
           }
       }
+      function myFunction(x) {
+            x.classList.toggle("change");
+          }
+
+      function menu(){
+          checkBox = document.getElementById("check")
+          if(checkBox.checked == true){
+            document.getElementById("menu2").style.display = "block"
+            document.body.style.overflow = "hidden"
+          }else{
+            document.getElementById("menu2").style.display = "none"
+          }
+        }
     </script>
     <script src="particulas.js"></script>
   </body>
