@@ -57,7 +57,6 @@
           line-height: 40px;
         }
         button{
-         
           margin-top: 20px;
           background: #4B0082;
           width: 250px;
@@ -110,6 +109,7 @@
           animation-fill-mode:forwards;
           animation-delay: 1s;
           z-index: 2;
+          scale: 1.2 1.2;
         }
         #circulo1{
           position: absolute;
@@ -235,10 +235,20 @@
         }
         #minhafoto{
           opacity: 0;
-          animation: luz2 2s 1;
+          animation: luz2 2s 1 , logo 10s infinite;
           animation-fill-mode: forwards;
           animation-delay: 5s;
-          margin-left: 85px
+          margin-left: 85px;
+          scale: 1.5;
+          
+
+        }
+        @keyframes logo{
+            0%{margin-top: -190px; scale: 1.5 1.5; transform: rotateY(0deg);}
+            25%{margin-top: -220px; scale: 1.6 1.6 ; }
+            50%{margin-top: -190px; scale: 1.5 1.5; transform: rotateY(360deg);}
+            75%{margin-top: -220px; scale: 1.6 1.6; }
+            100%{margin-top: -190px; scale: 1.5 1.5; transform: rotateY(0deg);}
         }
         #teste{
             width: 40px;
