@@ -112,25 +112,55 @@
         }
         
         #imagens{
+          position: relative;
           display: flex;
           flex-wrap: wrap;
           max-width: 70%;
           width: 100%;
           height: auto;
-          background: #7a00d110;
+          background: rgba(48, 0, 110, 0.226);
           margin-top: 100px;
           z-index: 2;
+          
+          
         }
         #imagens2{
+          position: relative;
           display: flex;
           justify-content: end;
           max-width: 70%;
           width: 100%;
           height: auto;
-          background: #7a00d110;
+          background: rgba(48, 0, 110, 0.226);;
           margin-top: 20px;
+          margin-bottom: -80px;
           z-index: 3;
         }
+        #interior{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border: 3px solid transparent;
+          border-image: linear-gradient(-120deg ,rgba(48, 0, 110),transparent, transparent 70%);
+          border-image-slice: 1%;
+          z-index: -1;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50% , -50%); 
+        }
+        #interior2{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border: 3px solid transparent;
+          border-image: linear-gradient(-120deg ,rgba(48, 0, 110),transparent, transparent 70%);
+          border-image-slice: 1%;
+          z-index: -1;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50% , -50%); 
+        }
+
         #imagens img,#imagens2 img {
           max-width: 500px;
           width: 100%;
@@ -290,7 +320,8 @@
         </div>
       </div>
       <div id="centralizar">
-          <div id="imagens"><!--Div de imagens 1-->
+          <div id="imagens" class="imagens"><!--Div de imagens 1-->
+              
                 <img src="Imgs/portfolio 1.png" alt="">
                 <div id="textos"> <!--Div de texto 1-->
                     <a href=""><h1 id="link">Portfólio modelo 1</h1></a>
@@ -301,16 +332,18 @@
                     <a href="https://jos3vinicius.github.io/port2/"><button onmouseover="mudar(1)" onmouseout="mudar(0)">Acesse aqui</button></a>
                 </div>
           </div>
-          <div id="imagens2" style="flex-wrap: wrap-reverse;"><!--Div de imagens 1-->
+          <div id="imagens2" class="imagens2" style="flex-wrap: wrap-reverse;"><!--Div de imagens 1-->
+                
                 <div id="textos2"><!--Div de texto 2-->
                   <a href="" style="text-align: end;"><h1 id="link">Projeto 2</h1></a>
                   <p>Em breve</p>
                   <a href=""><button onmouseover="mudar(1)" onmouseout="mudar(0)">Acesse aqui</button></a>
                 </div>
-                <img src="Imgs/em breve.jpg" alt=""> 
+                <img id="testar50" src="Imgs/em breve.jpg" alt=""> 
                 
           </div>
-          <div id="imagens" style="flex-wrap: wrap; margin-top: 20px;margin-bottom: 20px;"><!--Div de imagens 3-->
+          <div id="imagens" class="imagens" style="flex-wrap: wrap; margin-top: 20px;margin-bottom: 20px;"><!--Div de imagens 3-->
+            
                   <img src="Imgs/em breve.jpg" alt=""> 
                   <div id="textos"><!--Div de texto 2-->
                     <a href=""><h1 id="link">Projeto 3</h1></a>
@@ -354,6 +387,32 @@
             document.getElementById("menu2").style.display = "none"
           }
         }
+      
+        position = 0
+        position2 = 0
+        function animar(){
+          nodeList = document.querySelectorAll(".imagens");
+          nodeList2 = document.querySelectorAll(".imagens2")
+          for(var a=0;a<nodeList.length;a++){
+            nodeList[a].style.cssText = "border: 3px solid transparent; " +
+          "border-image: linear-gradient("+position+"deg, rgb(91, 0, 211),transparent,transparent 100%);border-image-slice: 1%;"
+          }
+          for(var a=0;a<nodeList2.length;a++){
+            nodeList2[a].style.cssText = "border: 3px solid transparent; " +
+          "border-image: linear-gradient("+position2+"deg, rgb(91, 0, 211),transparent,transparent 100%);border-image-slice: 1%;"
+          }
+          position += 0.5
+          position2 += -0.5
+          if(position >= 360){
+            position = 0
+          }
+          if(position2 <= -360){
+            position2 = 0
+          }
+          
+        }
+        setInterval(animar,10)
+
     </script>
     <script src="particulas.js"></script>
   </body>
