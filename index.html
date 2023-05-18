@@ -115,20 +115,36 @@
           position: absolute;
           width: 210px;
           height: 210px;
-          border:5px solid #7a00d1;
+          border:7px solid #7a00d1;
           border-radius: 50%;
           border-style: dashed;
           margin-top: 190px;
           animation: girar 0.5s infinite;
         }
+        
+        #circulo5{
+          position: absolute;
+          width: 230px;
+          height: 230px;
+          border:5px solid #7a00d1;
+          border-radius: 50%;
+          border-style:groove;
+          margin-top: 220px;
+        }
         #circulo2{
           position: absolute;
           width: 150px;
           height: 150px;
-          border:5px solid #7a00d1;
+          border:10px solid #7a00d1;
           border-radius: 50%;
           border-style: dashed;
-          margin-top: 100px;
+          margin-top: 130px;
+          animation: mover 5s infinite;
+        }
+        @keyframes mover{
+            0%{margin-top: 130px;}
+            50%{margin-top: 160px;}
+            100%{margin-top: 130px;}
         }
         #circulo3{
           position: absolute;
@@ -149,13 +165,26 @@
           
           
         }
+        #circulo6{
+          position: absolute;
+          width: 35px;
+          height: 35px;
+          background: black;
+          border-radius: 50%;
+          animation: piscar 0.1s infinite 4s;
+        }
+        @keyframes piscar{
+            0%{background: black;}
+            100%{background:  rgb(255, 255, 255);;}
+        }
         @keyframes teste{
           0%{opacity: 0;}
           100%{opacity: 1;}
         }
         @keyframes girar{
           0%{transform: rotateZ(0deg);}
-          100%{transform: rotateZ(360deg);}  
+          50%{transform: rotateZ(360deg);}  
+          100%{transform: rotateZ(0deg)}
         }
         
         #direita{
@@ -436,10 +465,12 @@
       <div id="informaçoes">
           <img id="minhafoto" src="Imgs/logo3.png" alt="" style="position: absolute; width: 200px; height: 200px;;margin-top: -100px;" >
           <div id="holograma">
+              <div id="circulo5"></div>
               <div id="circulo1"></div>
               <div id="circulo2"></div>
               <div id="circulo3"></div>
               <div id="circulo4"></div>
+              <div id="circulo6"></div>
               <div class="luz" id="esquerda"></div>
               <div class="luz" id="direita"></div>
               <div class="luz" id="meio"></div>
