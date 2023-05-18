@@ -120,7 +120,7 @@
           width: 100%;
           height: auto;
           line-height: 30px;
-          background: #7a00d11e;
+          background: rgba(48, 0, 110, 0.226);
         }
         #textos h1, #textos p,#textos2 h1, #textos2 p{
           margin-top: 10px;
@@ -144,7 +144,7 @@
           width: 100%;
           height: auto;
           line-height: 30px;
-          background: #7a00d11e;
+          background: rgba(48, 0, 110, 0.226);
           margin-bottom: 10px;
         }
         #textos2 h1{
@@ -318,7 +318,7 @@
       </div>
 
       <div id="centralizar">
-        <div id="textos">
+        <div id="textos" class="imagens">
           <H1 style="z-index: 3;">Olá, sou José Vinicius,</H1>
           <p style="margin-top: 5px; z-index: 3;">desenvolvedor front-end e estudante de engenharia da computação e profissional de excel.
              Possuo conhecimento em html, css, javascript, python e C#.
@@ -333,7 +333,7 @@
         <img id="img1" src="img1.png" alt="Foto minha">
         <h1 id="titulo1">Experiencia</h1>
         <img id="img1" src="img1.png" alt="Foto minha2">
-        <div id="textos2">
+        <div id="textos2" class="imagens2">
           <H1>Assistente administrativo</H1>
           <p>
             <br>
@@ -392,6 +392,31 @@
             document.getElementById("menu2").style.display = "none"
           }
         }
+
+        position = 0
+        position2 = 0
+        function animar(){
+          nodeList = document.querySelectorAll(".imagens");
+          nodeList2 = document.querySelectorAll(".imagens2")
+          for(var a=0;a<nodeList.length;a++){
+            nodeList[a].style.cssText = "border: 3px solid transparent; " +
+          "border-image: linear-gradient("+position+"deg, rgb(91, 0, 211),transparent 80%);border-image-slice: 1%;"
+          }
+          for(var a=0;a<nodeList2.length;a++){
+            nodeList2[a].style.cssText = "border: 3px solid transparent; " +
+          "border-image: linear-gradient("+position2+"deg, rgb(91, 0, 211),transparent 80%);border-image-slice: 1%;"
+          }
+          position += 0.5
+          position2 += -0.5
+          if(position >= 360){
+            position = 0
+          }
+          if(position2 <= -360){
+            position2 = 0
+          }
+          
+        }
+        setInterval(animar,10)
     </script>
     <script src="particulas.js"></script>
   </body>
