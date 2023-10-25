@@ -100,6 +100,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          flex-direction: column;
           flex-wrap: wrap;
           width: 100%;
           height: auto;
@@ -115,7 +116,7 @@
           position: relative;
           display: flex;
           flex-wrap: wrap;
-          max-width: 70%;
+          max-width: 1500px;
           width: 100%;
           height: auto;
           background: rgba(48, 0, 110, 0.226);
@@ -128,7 +129,7 @@
           position: relative;
           display: flex;
           justify-content: end;
-          max-width: 70%;
+          max-width: 1500px;
           width: 100%;
           height: auto;
           background: rgba(48, 0, 110, 0.226);;
@@ -152,10 +153,22 @@
         }
         #textos{
           margin-left: 10px;
+          
+        }
+        #textos button{
+          margin-bottom: 4px;
         }
         #textos2{
           margin-right: 10px;
+          position: relative;
+
         }
+        #textos2 button{
+            position: absolute;
+            right: 0;
+            bottom: 4px;
+        }
+        #texto2
         #teste{
             width: 40px;
             height: 40px;
@@ -225,6 +238,12 @@
           font-size: 30px;
           text-decoration: none;
         }
+        #link2{
+          margin-left: 200px;
+          margin-bottom: 20px;
+        }
+
+        
 
         @media (max-width: 900px) {
             #ponteiro{
@@ -243,6 +262,16 @@
             }
             #textos, #textos2{
               text-align: center;
+            }
+            #link2{
+              margin-left: 0px;
+              margin-bottom: 20px;
+            }
+            #textos button{
+              position:relative;
+            }
+            #textos2 button{
+              position:relative;
             }
             #titulo1{
               margin-top: 500px;
@@ -265,6 +294,7 @@
             display: block;
            }
         }
+        
     </style>
   </head>
   <body onmousemove="mover()">
@@ -302,7 +332,7 @@
               
                 <img src="Imgs/geradordesenha.png" alt="">
                 <div id="textos"> <!--Div de texto 1-->
-                    <a><h1 id="link">Portfólio modelo 1</h1></a>
+                    <h1 id="link">Portfólio modelo 1</h1>
                     <p><br>Esse é o meu primeiro modelo de portfólio criado por mim. Deixei o modelo desse portfólio ativo
                       para que seja possivel consultar e verificar as diferenças dos modelos. Ele não se encontra completo ainda
                       pois resolvi trazer um modelo de portifolio não tão complexo visando melhor experiencia. Porem futuramente planejo finaliza-lo e melhora-lo.
@@ -313,12 +343,12 @@
           <div id="imagens2" class="imagens2" style=""><!--Div de imagens 1-->
                 
                 <div id="textos2"><!--Div de texto 2-->
-                  <a style="text-align: end;"><h1 id="link">Gerador de senhas</h1></a>
+                  <a ><h1 id="link2">Gerador de senhas</h1></a>
                   <p>Para esse projeto desenvolvi um gerador de senhas utilizando apenas javascript e criei o designer utilizando utilizando CSS. Classifico o projeto como um pouco simples, não foi tão complexo
                   na minha opnição em desenvolver.
                   
                   </p>
-                  <a href="https://jos3vinicius.github.io/gerador-de-senha/"><button onmouseover="mudar(1)" onmouseout="mudar(0)">Acesse aqui</button></a>
+                  <a href="https://jos3vinicius.github.io/gerador-de-senha/"><button onmouseover="mudar(1)" onmouseout="mudar(0)" style="left: right 0;">Acesse aqui</button></a>
                 </div>
                 <img id="testar50" src="Imgs/em breve.jpg" alt=""> 
                 
